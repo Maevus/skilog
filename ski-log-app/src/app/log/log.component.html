@@ -1,0 +1,44 @@
+<div class="log-form-container">
+    <div class="form-container">
+        <form [formGroup]="logSkiFormGroup" (submit)="submit()">
+            <mat-form-field>
+                <mat-label>Where</mat-label>
+                <input matInput formControlName="location">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>When</mat-label>
+                <input matInput formControlName="date" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Rate</mat-label>
+                <input matInput formControlName="rating">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Viz</mat-label>
+                <input matInput formControlName="viz">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Snow</mat-label>
+                <input matInput formControlName="snowType">
+            </mat-form-field>
+            <div class="other_input">
+                <mat-radio-group class="lesson-radio" formControlName="skiType">
+                    <mat-label>Type of skiing</mat-label>
+                    <mat-radio-button value="1">Alpine</mat-radio-button>
+                    <mat-radio-button value="2">Touring</mat-radio-button>
+                </mat-radio-group>
+                <mat-radio-group class="lesson-radio" formControlName="lesson">
+                    <mat-label>Included a lesson?</mat-label>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                    <mat-radio-button value="1">Yes</mat-radio-button>
+                </mat-radio-group>
+                <button mat-raised-button color="primary" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="log-table-container">
+    
+</div>

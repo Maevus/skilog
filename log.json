@@ -1,0 +1,31 @@
+{
+    "data": [
+        {
+            "location": "Astun",
+            "date": null,
+            "rating": 5,
+            "viz": "Good",
+            "snowType": "Spring",
+            "skiType": 1,
+            "lesson": 0
+        },
+        {
+            "location": "Astun",
+            "date": null,
+            "rating": 5,
+            "viz": "Good",
+            "snowType": "Spring",
+            "skiType": 1,
+            "lesson": 0
+        },
+        {
+            "location": "Astun",
+            "date": null,
+            "rating": 5,
+            "viz": "Good",
+            "snowType": "Spring",
+            "skiType": 1,
+            "lesson": 0
+        }
+    ]
+}
