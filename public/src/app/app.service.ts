@@ -1,21 +1,27 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  rootUrl = '/api';
+  private rootUrl = '/api';
 
   public getLogs() {
-    this.http.get(this.rootUrl + "/all");1
+    this.http.get(this.rootUrl + "/all"); 1
   }
 
-  public addLog(log: any) {
-    this.http.post(this.rootUrl + "/addLog", {log});
+  public addLog(log: any): Observable<any> {
+    return this.http.post(this.rootUrl + "/addLog", { log })
+      .pipe(catchError((err: any, caught: any) => {
+        return throwError(err);
+      }));
   }
+
 }
