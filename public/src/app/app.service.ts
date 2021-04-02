@@ -13,8 +13,11 @@ export class AppService {
 
   private rootUrl = '/api';
 
-  public getLogs() {
-    this.http.get(this.rootUrl + "/all");
+  public getLogs(): Observable<any> {
+    return this.http.get(this.rootUrl + "/all")
+      .pipe(catchError((err: any) => {
+        return throwError(err);
+      }));
   }
 
   public addLog(log: any): Observable<any> {
