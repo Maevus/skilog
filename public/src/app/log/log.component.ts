@@ -15,7 +15,8 @@ export class LogComponent implements OnInit {
 
   public logSkiFormGroup: FormGroup;
   public lesson: boolean = false;
-  public logs: Log[] = [];
+  public logsData: Log[] = [];
+  public displayedColumns: string[] = ["Location", "Date", "Rating", "Visibility", "Snow Type", "Ski Type", "Lesson"];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,8 +39,8 @@ export class LogComponent implements OnInit {
 
   ngOnInit() {
     this.get().subscribe(data => {
-      this.logs = data;
-      console.log("Retrieved logs:::", this.logs)
+      this.logsData = data;
+      console.log("Retrieved logs:::", this.logsData)
     });
   }
 
