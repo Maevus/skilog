@@ -11,7 +11,7 @@ import { BehaviorSubject, combineLatest, Subject } from "rxjs";
 import { map, mapTo, takeUntil } from "rxjs/operators";
 
 @Directive({
-    selector: "[matTableResponsive]"
+    selector: "[matTableResponsive]",
 })
 export class MatTableResponsiveDirective implements OnInit, AfterViewInit, OnDestroy {
     private onDestroy$ = new Subject<boolean>();
@@ -59,7 +59,10 @@ export class MatTableResponsiveDirective implements OnInit, AfterViewInit, OnDes
             .subscribe((rows: HTMLTableCellElement[][])  => {
                 console.log("Rearranging cells...")
                 rows.forEach((rowCells =>
-                    rowCells.forEach(cell => this.renderer.setAttribute(cell, "data-column-name", columnNames[cell.cellIndex]))
+                    rowCells.forEach(cell => {
+                        this.renderer.setAttribute(cell, "data-column-name", columnNames[cell.cellIndex])
+                        console.log(cell)
+                    })
                 ))
         })
     }

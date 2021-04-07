@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material/table'
 @Component({
   selector: 'app-log',
   templateUrl: './log.component.html',
-  styleUrls: ['./log.component.css']
+  styleUrls: ['./log.component.scss']
 })
 export class LogComponent implements OnInit {
 
