@@ -19,6 +19,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { MatIconModule } from '@angular/material/icon';
 import { MatTableResponsiveDirective} from "./mat-table-responsive/mat-table-responsive.directive";
 import { HighlightDirective } from './highlight/highlight.directive';
 
@@ -49,6 +50,8 @@ import { HighlightDirective } from './highlight/highlight.directive';
     MatRadioModule,
     MatTableModule,
     MatSortModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,7 +18,7 @@ export class LogComponent implements OnInit {
   public logSkiFormGroup: FormGroup;
   public lesson: boolean = false;
   public logsDataSource: MatTableDataSource<Log> = new MatTableDataSource();
-  public displayedColumns: string[] = ["date", "location", "rating", "visibility", "snowType", "skiType", "lesson"];
+  public displayedColumns: string[] = ["date", "location", "rating", "visibility", "snowType", "skiType", "lesson", "actions"];
 
   private destroy$: Subject<boolean> = new Subject<boolean>();
 

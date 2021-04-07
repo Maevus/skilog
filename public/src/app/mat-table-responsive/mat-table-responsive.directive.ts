@@ -9,6 +9,7 @@ import {
 import { MatSort } from "@angular/material/sort";
 import { BehaviorSubject, combineLatest, Subject } from "rxjs";
 import { map, mapTo, takeUntil } from "rxjs/operators";
+import { COLUMN_NAMES} from "../const";
 
 @Directive({
     selector: "[matTableResponsive]",
@@ -41,13 +42,6 @@ export class MatTableResponsiveDirective implements OnInit, AfterViewInit, OnDes
 
 
     ngAfterViewInit() {
-        /**
-         * Set the "data-column-name" attribute for every body row cell, either on
-         * thead row changes (e.g. language changes) or tbody rows changes (add, delete).
-         */
-        let columnNames = ["date", "location", "rating", "visibility", "snowType", "skiType", "lesson"];
-        
-        console.log("initiating responsive table directive...")
         this.tbodyChanged$
             .pipe(
                 mapTo(this.tbody.rows),
@@ -57,10 +51,9 @@ export class MatTableResponsiveDirective implements OnInit, AfterViewInit, OnDes
                 takeUntil(this.onDestroy$)
             )
             .subscribe((rows: HTMLTableCellElement[][])  => {
-                console.log("Rearranging cells...")
                 rows.forEach((rowCells =>
                     rowCells.forEach(cell => {
-                        this.renderer.setAttribute(cell, "data-column-name", columnNames[cell.cellIndex])
+                        this.renderer.setAttribute(cell, "data-column-name", COLUMN_NAMES[cell.cellIndex])
                         console.log(cell)
                     })
                 ))
