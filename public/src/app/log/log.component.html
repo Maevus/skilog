@@ -38,40 +38,33 @@
     </form>
 </div>
 <div class="log-table-container">
-    <!-- <ul class="heroes">
-        <li *ngFor="let log of logs">
-            <span>{{log.location}}</span>
-            <span>{{log.snowType}}</span>
-        </li>
-    </ul> -->
-    <table mat-table [dataSource]="logsData">
-        <!-- ["Location", "Date", "Rating", "Visibility", "Good", "Snow Type", "Ski Type", "Lesson"]; -->
-        <ng-container matColumnDef="Location">
-            <th mat-header-cell *matHeaderCellDef>Location</th>
+    <table mat-table matSort matTableResponsive [dataSource]="logsDataSource" class="mat-elevation-z3">
+        <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
             <td mat-cell *matCellDef="let log">{{log.location}}</td>
         </ng-container>
-        <ng-container matColumnDef="Date">
-            <th mat-header-cell *matHeaderCellDef>Date</th>
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
             <td mat-cell *matCellDef="let log">{{log.date}}</td>
         </ng-container>
-        <ng-container matColumnDef="Rating">
-            <th mat-header-cell *matHeaderCellDef>Rating</th>
+        <ng-container matColumnDef="rating">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Rating</th>
             <td mat-cell *matCellDef="let log">{{log.rating}}</td>
         </ng-container>
-        <ng-container matColumnDef="Visibility">
-            <th mat-header-cell *matHeaderCellDef>Viz</th>
+        <ng-container matColumnDef="visibility">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Viz</th>
             <td mat-cell *matCellDef="let log">{{log.viz}}</td>
         </ng-container>
-        <ng-container matColumnDef="Snow Type">
-            <th mat-header-cell *matHeaderCellDef>Snow Type</th>
+        <ng-container matColumnDef="snowType">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Snow Type</th>
             <td mat-cell *matCellDef="let log">{{log.snowType}}</td>
         </ng-container>
-        <ng-container matColumnDef="Ski Type">
-            <th mat-header-cell *matHeaderCellDef>Ski Type</th>
+        <ng-container matColumnDef="skiType">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Ski Type</th>
             <td mat-cell *matCellDef="let log">{{log.skiType}}</td>
         </ng-container>
-        <ng-container matColumnDef="Lesson">
-            <th mat-header-cell *matHeaderCellDef>Lesson</th>
+        <ng-container matColumnDef="lesson">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Lesson</th>
             <td mat-cell *matCellDef="let log">{{log.lesson}}</td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

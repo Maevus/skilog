@@ -13,13 +13,6 @@ mat-form-field {
   display: block;
 }
 
-.log-table-container {
-  text-align: center;
-  height: 100vh;
-  display: block;
-  padding: 4rem;
-}
-
 .mat-radio-button {
   margin: 1rem;
 }
@@ -34,5 +27,19 @@ mat-form-field {
 
 .lesson-radio {
     color: rgb(100, 101, 104);
+}
 
+.log-table-container {
+  height: 100vh;
+  padding: 4rem;
+}
+
+table {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .responsiveHide {
+    display: none;
+  }
 }

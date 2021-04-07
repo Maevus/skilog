@@ -18,13 +18,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableResponsiveDirective} from "./mat-table-responsive/mat-table-responsive.directive";
+import { HighlightDirective } from './highlight/highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogComponent,
     DashComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HighlightDirective,
+    MatTableResponsiveDirective
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,8 @@ import { MatTableModule } from '@angular/material/table';
     MatNativeDateModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatTableModule
+    MatTableModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
