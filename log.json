@@ -80,6 +80,15 @@
             "snowType": "sjfhksd",
             "skiType": "1",
             "lesson": "1"
+        },
+        {
+            "location": "Formigal",
+            "date": "2021-04-07T22:00:00.000Z",
+            "rating": "4",
+            "viz": "Excellent",
+            "snowType": "Spring",
+            "skiType": "1",
+            "lesson": "0"
         }
     ]
 }

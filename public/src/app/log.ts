@@ -5,7 +5,7 @@ export interface Log {
     rating: number;
     viz: string;
     snowType: string;
-    skiType: number;
-    lesson: number;
+    skiType: string;
+    lesson: string;
 
 }

@@ -29,14 +29,16 @@ export class LogComponent implements OnInit {
     private appService: AppService
   ) {
     this.logSkiFormGroup = this.formBuilder.group({
-      location: [null],
-      date: [null],
-      rating: [null],
-      viz: [null],
-      snowType: [null],
-      skiType: [null],
-      lesson: [null],
+      location: ["Astun", Validators.required],
+      date: [Validators.required],
+      rating: ["3", Validators.required],
+      viz: ["good", Validators.required], // make drop down
+      snowType: [null, Validators.required], //make drop down
+      skiType: ["1",  Validators.required],
+      lesson: ["0",  Validators.required],
     });
+
+    this.logSkiFormGroup.controls["date"].setValue(new Date());
   }
 
   ngOnInit() {
@@ -45,6 +47,8 @@ export class LogComponent implements OnInit {
         map((logs: Array<Log>): Array<Log> =>
           logs.map((log: Log): Log => {
             log.date = this.formatDateToLocalString(log.date);
+            log.lesson = this.formatLessonToString(log.lesson);
+            log.skiType = this.formatSkiTypeToString(log.skiType);
             return log;
           })
         )
@@ -52,6 +56,20 @@ export class LogComponent implements OnInit {
       .subscribe(data => {
         this.logsDataSource.data = data;
       });
+  }
+  formatSkiTypeToString(skiType: string): string {
+    if (!skiType) {
+      return "";
+    }
+
+    return skiType == "1" ? "Alpine" : "Skimo" 
+  }
+
+  formatLessonToString(lesson: string): string {
+    if (!lesson) {
+      return "";
+    }
+    return lesson == "1" ? "Yes" : "No"; 
   }
 
   ngAfterViewInit() {

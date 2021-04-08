@@ -36,8 +36,6 @@ export class MatTableResponsiveDirective implements OnInit, AfterViewInit, OnDes
         this.tbody = this.table.nativeElement.querySelector("tbody");
         this.theadObserver.observe(this.thead, { characterData: true, subtree: true });
         this.tbodyObserver.observe(this.tbody, { childList: true });
-
-        console.log("initiating responsive table directive...")
     }
 
 
@@ -54,7 +52,6 @@ export class MatTableResponsiveDirective implements OnInit, AfterViewInit, OnDes
                 rows.forEach((rowCells =>
                     rowCells.forEach(cell => {
                         this.renderer.setAttribute(cell, "data-column-name", COLUMN_NAMES[cell.cellIndex])
-                        console.log(cell)
                     })
                 ))
         })
