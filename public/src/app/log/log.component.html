@@ -16,11 +16,15 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Viz</mat-label>
-            <input matInput formControlName="viz">
+            <mat-select matInput formControlName="viz">
+                <mat-option *ngFor="let viz of vizTypes" [value]="viz">{{viz}}</mat-option>
+            </mat-select>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Snow</mat-label>
-            <input matInput formControlName="snowType">
+            <mat-select matInput formControlName="snowType" value="snowTypes[0]">
+                <mat-option *ngFor="let snowType of snowTypes" [value]="snowType">{{snowType}}</mat-option>
+            </mat-select>
         </mat-form-field>
         <div class="other_input">
             <mat-radio-group class="lesson-radio" formControlName="skiType">

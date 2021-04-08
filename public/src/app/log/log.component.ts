@@ -6,6 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import { Log } from '../log';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table'
+import { VIZ_TYPES, SNOW_TYPES } from "../const";
 
 
 @Component({
@@ -19,6 +20,8 @@ export class LogComponent implements OnInit {
   public lesson: boolean = false;
   public logsDataSource: MatTableDataSource<Log> = new MatTableDataSource();
   public displayedColumns: string[] = ["date", "location", "rating", "visibility", "snowType", "skiType", "lesson"];
+  public vizTypes: string[] = VIZ_TYPES;
+  public snowTypes: string[] = SNOW_TYPES;
 
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -32,13 +35,14 @@ export class LogComponent implements OnInit {
       location: ["Astun", Validators.required],
       date: [Validators.required],
       rating: ["3", Validators.required],
-      viz: ["good", Validators.required], // make drop down
-      snowType: [null, Validators.required], //make drop down
+      viz: [0, Validators.required], // make drop down
+      snowType: [1, Validators.required], //make drop down
       skiType: ["1",  Validators.required],
       lesson: ["0",  Validators.required],
     });
 
     this.logSkiFormGroup.controls["date"].setValue(new Date());
+
   }
 
   ngOnInit() {

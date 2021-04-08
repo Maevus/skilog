@@ -22,6 +22,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableResponsiveDirective} from "./mat-table-responsive/mat-table-responsive.directive";
 import { HighlightDirective } from './highlight/highlight.directive';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { HighlightDirective } from './highlight/highlight.directive';
     MatTableModule,
     MatSortModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
