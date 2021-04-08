@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppService } from '../app.service';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, map } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { Log } from '../log';
 import { MatSort } from '@angular/material/sort';
@@ -18,7 +18,7 @@ export class LogComponent implements OnInit {
   public logSkiFormGroup: FormGroup;
   public lesson: boolean = false;
   public logsDataSource: MatTableDataSource<Log> = new MatTableDataSource();
-  public displayedColumns: string[] = ["date", "location", "rating", "visibility", "snowType", "skiType", "lesson", "actions"];
+  public displayedColumns: string[] = ["date", "location", "rating", "visibility", "snowType", "skiType", "lesson"];
 
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -40,9 +40,18 @@ export class LogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.get().subscribe(data => {
-      this.logsDataSource.data = data;
-    });
+    this.get()
+      .pipe(
+        map((logs: Array<Log>): Array<Log> =>
+          logs.map((log: Log): Log => {
+            log.date = this.formatDateToLocalString(log.date);
+            return log;
+          })
+        )
+      )
+      .subscribe(data => {
+        this.logsDataSource.data = data;
+      });
   }
 
   ngAfterViewInit() {
@@ -56,7 +65,7 @@ export class LogComponent implements OnInit {
     console.log("Attempting to POST...");
     this.add();
   }
-  
+
   ngOnDestroy() {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
@@ -65,12 +74,16 @@ export class LogComponent implements OnInit {
   private get(): Observable<any> {
     return this.appService.getLogs();
   }
-  
+
   private add() {
     this.appService.addLog(this.logSkiFormGroup.value).pipe(takeUntil(this.destroy$)).subscribe(data => {
       console.log("Logged:::", data);
       this.logSkiFormGroup.reset();
       this.logsDataSource.connect
     });
+  }
+
+  private formatDateToLocalString(date: string): string {
+    return new Date(date).toLocaleDateString();
   }
 }
