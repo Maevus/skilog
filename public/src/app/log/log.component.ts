@@ -22,6 +22,7 @@ export class LogComponent implements OnInit {
   public displayedColumns: string[] = ["date", "location", "rating", "visibility", "snowType", "skiType", "lesson"];
   public vizTypes: string[] = VIZ_TYPES;
   public snowTypes: string[] = SNOW_TYPES;
+  public defSnowType ="Powder";
 
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -35,13 +36,15 @@ export class LogComponent implements OnInit {
       location: ["Astun", Validators.required],
       date: [Validators.required],
       rating: ["3", Validators.required],
-      viz: [0, Validators.required], // make drop down
-      snowType: [1, Validators.required], //make drop down
-      skiType: ["1",  Validators.required],
+      viz: [0, Validators.required],
+      snowType: [Validators.required],
+      skiType: ["1", Validators.required],
       lesson: ["0",  Validators.required],
     });
 
     this.logSkiFormGroup.controls["date"].setValue(new Date());
+    this.logSkiFormGroup.controls["snowType"].setValue(this.snowTypes[0]);
+    this.logSkiFormGroup.controls["viz"].setValue(this.vizTypes[0]);
 
   }
 
@@ -61,6 +64,7 @@ export class LogComponent implements OnInit {
         this.logsDataSource.data = data;
       });
   }
+
   formatSkiTypeToString(skiType: string): string {
     if (!skiType) {
       return "";
@@ -100,7 +104,7 @@ export class LogComponent implements OnInit {
   private add() {
     this.appService.addLog(this.logSkiFormGroup.value).pipe(takeUntil(this.destroy$)).subscribe(data => {
       console.log("Logged:::", data);
-      this.logSkiFormGroup.reset();
+      //this.logSkiFormGroup.reset();
       this.logsDataSource.connect
     });
   }

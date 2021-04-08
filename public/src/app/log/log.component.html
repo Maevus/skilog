@@ -22,7 +22,7 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Snow</mat-label>
-            <mat-select matInput formControlName="snowType" value="snowTypes[0]">
+            <mat-select matInput formControlName="snowType">
                 <mat-option *ngFor="let snowType of snowTypes" [value]="snowType">{{snowType}}</mat-option>
             </mat-select>
         </mat-form-field>
