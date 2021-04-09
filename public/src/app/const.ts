@@ -1,4 +1,4 @@
-export const COLUMN_NAMES = ["Date", "Loc", "Rating", "Viz", "Snow", "Ski Type", "Lesson"];
+export const COLUMN_NAMES = ["Date", "Loc", "Stars", "Viz", "Snow", "Ski Type", "Lesson"];
 
 export const SNOW_TYPES = ["Powder", "Spring", "Frozen/Spring", "Windpack"]
 

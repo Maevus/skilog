@@ -23,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableResponsiveDirective} from "./mat-table-responsive/mat-table-responsive.directive";
 import { HighlightDirective } from './highlight/highlight.directive';
 import { MatSelectModule } from '@angular/material/select';
+import { StarRatingDirective } from './star-rating/star-rating.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatSelectModule } from '@angular/material/select';
     DashComponent,
     PageNotFoundComponent,
     HighlightDirective,
-    MatTableResponsiveDirective
+    MatTableResponsiveDirective,
+    StarRatingDirective
   ],
   imports: [
     BrowserModule,
