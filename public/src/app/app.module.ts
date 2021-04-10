@@ -23,7 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableResponsiveDirective} from "./mat-table-responsive/mat-table-responsive.directive";
 import { HighlightDirective } from './highlight/highlight.directive';
 import { MatSelectModule } from '@angular/material/select';
-import { StarRatingDirective } from './star-rating/star-rating.directive';
+import { MatCard, MatCardModule } from '@angular/material/card';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { StarRatingDirective } from './star-rating/star-rating.directive';
     PageNotFoundComponent,
     HighlightDirective,
     MatTableResponsiveDirective,
-    StarRatingDirective
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +56,8 @@ import { StarRatingDirective } from './star-rating/star-rating.directive';
     MatSortModule,
     MatIconModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

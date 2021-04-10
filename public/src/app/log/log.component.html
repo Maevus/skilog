@@ -11,10 +11,6 @@
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Stars</mat-label>
-            <input matInput formControlName="rating">
-        </mat-form-field>
-        <mat-form-field>
             <mat-label>Viz</mat-label>
             <mat-select matInput formControlName="viz">
                 <mat-option *ngFor="let viz of vizTypes" [value]="viz">{{viz}}</mat-option>
@@ -37,9 +33,11 @@
                 <mat-radio-button value="0">No</mat-radio-button>
                 <mat-radio-button value="1">Yes</mat-radio-button>
             </mat-radio-group>
+            <app-star-rating></app-star-rating>
             <button mat-raised-button color="primary" type="submit">Add</button>
         </div>
     </form>
+
 </div>
 <div class="log-table-container">
     <table mat-table matSort matTableResponsive [dataSource]="logsDataSource" class="mat-elevation-z3">
