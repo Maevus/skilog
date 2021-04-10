@@ -54,7 +54,7 @@ export class StarRatingComponent implements OnInit {
 
         if ( star.id <= value){
 
-          star.class = 'star-gold star';
+          star.class = 'star-color star';
 
         }else{
 
