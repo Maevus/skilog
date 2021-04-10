@@ -33,11 +33,10 @@
                 <mat-radio-button value="0">No</mat-radio-button>
                 <mat-radio-button value="1">Yes</mat-radio-button>
             </mat-radio-group>
-            <app-star-rating></app-star-rating>
+            <app-star-rating (starRatingEvent)="addStars($event)"></app-star-rating>
             <button mat-raised-button color="primary" type="submit">Add</button>
         </div>
     </form>
-
 </div>
 <div class="log-table-container">
     <table mat-table matSort matTableResponsive [dataSource]="logsDataSource" class="mat-elevation-z3">

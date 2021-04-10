@@ -23,7 +23,7 @@ export class LogComponent implements OnInit {
   public vizTypes: string[] = VIZ_TYPES;
   public snowTypes: string[] = SNOW_TYPES;
   public defSnowType ="Powder";
-
+  
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
   @ViewChild(MatSort) sort: MatSort = new MatSort();
@@ -97,15 +97,20 @@ export class LogComponent implements OnInit {
     this.destroy$.unsubscribe();
   }
 
+  addStars(value: number) {
+    this.logSkiFormGroup.controls["rating"].setValue(value.toString());
+  }
+
   private get(): Observable<any> {
     return this.appService.getLogs();
   }
 
   private add() {
+    //create new dto with stars to push to server'
     this.appService.addLog(this.logSkiFormGroup.value).pipe(takeUntil(this.destroy$)).subscribe(data => {
       console.log("Logged:::", data);
       //this.logSkiFormGroup.reset();
-      this.logsDataSource.connect
+      this.logsDataSource.connect;
     });
   }
 
