@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -10,91 +10,94 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 
-
 $md-skiblue: (
-    50 : #e3e8f0,
-    100 : #b9c6d9,
-    200 : #8aa0bf,
-    300 : #5b79a5,
-    400 : #375d92,
-    500 : #14407f,
-    600 : #123a77,
-    700 : #0e326c,
-    800 : #0b2a62,
-    900 : #061c4f,
-    A100 : #83a1ff,
-    A200 : #507aff,
-    A400 : #1d53ff,
-    A700 : #0440ff,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #ffffff,
-        400 : #ffffff,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #ffffff,
-        A400 : #ffffff,
-        A700 : #ffffff,
-    )
+  50: #e3e8f0,
+  100: #b9c6d9,
+  200: #8aa0bf,
+  300: #5b79a5,
+  400: #375d92,
+  500: #14407f,
+  600: #123a77,
+  700: #0e326c,
+  800: #0b2a62,
+  900: #061c4f,
+  A100: #83a1ff,
+  A200: #507aff,
+  A400: #1d53ff,
+  A700: #0440ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
 );
 
 $md-skired: (
-    50 : #fae9e7,
-    100 : #f2c8c3,
-    200 : #eaa39c,
-    300 : #e27e74,
-    400 : #db6256,
-    500 : #d54638,
-    600 : #d03f32,
-    700 : #ca372b,
-    800 : #c42f24,
-    900 : #ba2017,
-    A100 : #ffeeed,
-    A200 : #ffbdba,
-    A400 : #ff8c87,
-    A700 : #ff746e,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
+  50: #fae9e7,
+  100: #f2c8c3,
+  200: #eaa39c,
+  300: #e27e74,
+  400: #db6256,
+  500: #d54638,
+  600: #d03f32,
+  700: #ca372b,
+  800: #c42f24,
+  900: #ba2017,
+  A100: #ffeeed,
+  A200: #ffbdba,
+  A400: #ff8c87,
+  A700: #ff746e,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
 
 $log-app-primary: mat-palette($md-skiblue);
 $log-app-accent: mat-palette($md-skired);
 
 // The warn palette is optional (defaults to red).
-$log-app-warn:    mat-palette($mat-red);
+$log-app-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as `color` or `typography`.
-$log-app-theme: mat-light-theme((
-  color: (
-    primary: $log-app-primary,
-    accent: $log-app-accent,
-    warn: $log-app-warn,  
+$log-app-theme: mat-light-theme(
+  (
+    color: (
+      primary: $log-app-primary,
+      accent: $log-app-accent,
+      warn: $log-app-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
+
 @include angular-material-theme($log-app-theme);
+// Import library functions for theme creation.
 
