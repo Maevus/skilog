@@ -1,42 +1,44 @@
-<div class="form-container">
-    <form [formGroup]="logSkiFormGroup" (submit)="submit()">
-        <mat-form-field>
-            <mat-label>Where</mat-label>
-            <input matInput formControlName="location">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>When</mat-label>
-            <input matInput formControlName="date" [matDatepicker]="picker" formControlName="date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Viz</mat-label>
-            <mat-select matInput formControlName="viz">
-                <mat-option *ngFor="let viz of vizTypes" [value]="viz">{{viz}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Snow</mat-label>
-            <mat-select matInput formControlName="snowType">
-                <mat-option *ngFor="let snowType of snowTypes" [value]="snowType">{{snowType}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <div class="other_form_input">
-            <mat-radio-group formControlName="skiType">
-                <mat-label>Type of skiing</mat-label>
-                <mat-radio-button value="1">Alpine</mat-radio-button>
-                <mat-radio-button value="2">Touring</mat-radio-button>
-            </mat-radio-group>
-            <mat-radio-group formControlName="lesson">
-                <mat-label>Included a lesson?</mat-label>
-                <mat-radio-button value="0">No</mat-radio-button>
-                <mat-radio-button value="1">Yes</mat-radio-button>
-            </mat-radio-group>
-            <app-star-rating (starRatingEvent)="addStars($event)"></app-star-rating>
-            <button mat-raised-button color="primary" type="submit">Add</button>
-        </div>
-    </form>
+<div class="img">
+    <div class="form-container">
+        <form [formGroup]="logSkiFormGroup" (submit)="submit()">
+            <mat-form-field>
+                <mat-label>Where</mat-label>
+                <input matInput formControlName="location">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>When</mat-label>
+                <input matInput formControlName="date" [matDatepicker]="picker" formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Viz</mat-label>
+                <mat-select matInput formControlName="viz">
+                    <mat-option *ngFor="let viz of vizTypes" [value]="viz">{{viz}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Snow</mat-label>
+                <mat-select matInput formControlName="snowType">
+                    <mat-option *ngFor="let snowType of snowTypes" [value]="snowType">{{snowType}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="other_form_input">
+                <mat-radio-group formControlName="skiType">
+                    <mat-label>Type of skiing</mat-label>
+                    <mat-radio-button value="1">Alpine</mat-radio-button>
+                    <mat-radio-button value="2">Touring</mat-radio-button>
+                </mat-radio-group>
+                <mat-radio-group formControlName="lesson">
+                    <mat-label>Included a lesson?</mat-label>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                    <mat-radio-button value="1">Yes</mat-radio-button>
+                </mat-radio-group>
+                <app-star-rating (starRatingEvent)="addStars($event)"></app-star-rating>
+                <button mat-raised-button color="primary" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
 </div>
 <div class="log-table-container">
     <table mat-table matSort matTableResponsive [dataSource]="logsDataSource" class="mat-elevation-z3">
@@ -77,6 +79,6 @@
             </tr>
         </ng-container> -->
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr> 
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 </div>
