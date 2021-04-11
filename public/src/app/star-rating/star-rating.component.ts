@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { DEFAULT_STARS } from '../const';
 
 @Component({
   selector: 'app-star-rating',
@@ -40,7 +41,9 @@ export class StarRatingComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.selectStar(DEFAULT_STARS);
+  }
 
   selectStar(value: number): void {
     this.stars.filter((star) => {

@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import { Log } from '../log';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table'
-import { VIZ_TYPES, SNOW_TYPES } from "../const";
+import { VIZ_TYPES, SNOW_TYPES, DEFAULT_STARS } from "../const";
 
 
 @Component({
@@ -35,7 +35,7 @@ export class LogComponent implements OnInit {
     this.logSkiFormGroup = this.formBuilder.group({
       location: ["Astun", Validators.required],
       date: [Validators.required],
-      rating: ["3", Validators.required],
+      rating: [DEFAULT_STARS.toString(), Validators.required],
       viz: [0, Validators.required],
       snowType: [Validators.required],
       skiType: ["1", Validators.required],
@@ -106,7 +106,6 @@ export class LogComponent implements OnInit {
   }
 
   private add() {
-    //create new dto with stars to push to server'
     this.appService.addLog(this.logSkiFormGroup.value).pipe(takeUntil(this.destroy$)).subscribe(data => {
       console.log("Logged:::", data);
       //this.logSkiFormGroup.reset();

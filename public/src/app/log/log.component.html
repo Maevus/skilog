@@ -22,13 +22,13 @@
                 <mat-option *ngFor="let snowType of snowTypes" [value]="snowType">{{snowType}}</mat-option>
             </mat-select>
         </mat-form-field>
-        <div class="other_input">
-            <mat-radio-group class="lesson-radio" formControlName="skiType">
+        <div class="other_form_input">
+            <mat-radio-group formControlName="skiType">
                 <mat-label>Type of skiing</mat-label>
                 <mat-radio-button value="1">Alpine</mat-radio-button>
                 <mat-radio-button value="2">Touring</mat-radio-button>
             </mat-radio-group>
-            <mat-radio-group class="lesson-radio" formControlName="lesson">
+            <mat-radio-group formControlName="lesson">
                 <mat-label>Included a lesson?</mat-label>
                 <mat-radio-button value="0">No</mat-radio-button>
                 <mat-radio-button value="1">Yes</mat-radio-button>

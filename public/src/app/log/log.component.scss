@@ -17,16 +17,10 @@ mat-form-field {
   margin: 1rem;
 }
 
-.other_input {
+.other_form_input {
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  align-content: space-between;
   font: 0.85rem arial, sans-serif;
-}
-
-.lesson-radio {
-    color: rgb(100, 101, 104);
 }
 
 .log-table-container {
@@ -43,8 +37,11 @@ table {
   text-align: center;
 }
 
+mat-radio-group {
+  color: rgb(100, 101, 104);
+}
+
 app-star-rating {
   padding: 0.5rem;
   text-align: center;
-
 }
