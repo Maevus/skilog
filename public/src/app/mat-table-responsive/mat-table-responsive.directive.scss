@@ -14,6 +14,7 @@
         align-items: center;
         padding: 1rem 0.5rem;
         justify-content: space-around;
+        color:#38474e;
 
         & > .mat-sort-header-container {
           padding-left: 15px; // padding is used to center the header table cells, due to the width of the sort icon
@@ -62,7 +63,7 @@
       }
 
       &:not(:last-of-type) td:last-of-type {
-        border-bottom: 0.5rem solid #71829c;
+        border-bottom: 0.5rem solid rgb(113, 130, 156, 0.8);
       }
     }
   }
