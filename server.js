@@ -13,11 +13,11 @@ app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
 
-// app.use(express.static('ski-log-app'));
+app.use(express.static(process.cwd()+"/public/dist/ski-log-app"));
+app.get('/', (request, response) => {
+    response.sendFile(process.cwd()+"/public/dist/ski-log-app/index.html") 
+  });
 
-// app.get("/", (request, response) => {
-//     response.sendFile(process.cwd() + "/ski-log-app/dist/finish path!")
-// })
 app.get('/api/all', sendLogs)
 app.post('/api/addLog', addLog);
 
